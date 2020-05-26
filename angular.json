@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vk-api-ang"
+    }
+  },
+  "defaultProject": "vk-api-ang",
+  "cli": {
+    "analytics": false
+  }
 }
