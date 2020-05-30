@@ -26,7 +26,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ "./node_modules/jquery/dist/jquery.js" ]
           },
           "configurations": {
             "production": {
@@ -67,7 +67,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "vk-api-ang:build:production"
+              "browserTarget": "vk-api-ang:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },
