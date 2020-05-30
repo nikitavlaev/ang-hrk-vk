@@ -4,17 +4,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { InfoPageComponent } from './info-page/info-page.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import { InfoFriendsComponent } from './info-friends/info-friends.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InfoPageComponent,
-    AuthButtonComponent
+    AuthButtonComponent,
+    InfoFriendsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

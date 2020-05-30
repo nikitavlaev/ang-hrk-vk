@@ -1,1 +1,4 @@
-<p>info-page works!</p>
+<p *ngIf="!gotToken">Please, press this button to authorize yourself:</p>
+<app-auth-button *ngIf="!gotToken"></app-auth-button>
+<p *ngIf="gotToken">{{firstName}}</p>
+<app-info-friends *ngIf="gotToken"></app-info-friends>
