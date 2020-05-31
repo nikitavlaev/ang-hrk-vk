@@ -1,4 +1,4 @@
-<p *ngIf="!gotToken">Please, press this button to authorize yourself:</p>
+<p class="text-justify" *ngIf="!gotToken">Please, press this button to authorize yourself:</p>
 <app-auth-button *ngIf="!gotToken"></app-auth-button>
-<p *ngIf="gotToken">{{firstName}}</p>
+<h4 class="text-justify" *ngIf="gotToken">{{firstName}} {{lastName}}</h4>
 <app-info-friends *ngIf="gotToken"></app-info-friends>

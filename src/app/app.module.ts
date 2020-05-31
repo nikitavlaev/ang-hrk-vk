@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { InfoPageComponent } from './info-page/info-page.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
-import {HttpClient, HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import { InfoFriendsComponent } from './info-friends/info-friends.component';
 
 @NgModule({

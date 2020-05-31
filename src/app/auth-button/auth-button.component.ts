@@ -1,7 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {InfoPageComponent} from '../info-page/info-page.component';
-import * as $ from 'jquery';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-auth-button',
@@ -12,43 +9,6 @@ import * as $ from 'jquery';
 export class AuthButtonComponent implements OnInit {
 
   constructor() {
-
-      // function jsonp(url, callback) {
-      //   let callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-      //   window[callbackName] = function(data) {
-      //     delete window[callbackName];
-      //     document.body.removeChild(script);
-      //     callback(data);
-      //   };
-      //
-      //   let script = document.createElement('script');
-      //   script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
-      //   document.body.appendChild(script);
-      // }
-
-      // jsonp('https://oauth.vk.com/access_token?client_id=7490396&client_secret=XmHyFSkMDm7kDvaXOfEF&code=' + code + '&redirect_uri=http://localhost:4200/',
-      //   function(response) {
-      //     console.log(response);
-      //   });
-      // $.ajax({
-      //     url: 'https://oauth.vk.com/access_token?client_id=7490396&client_secret=XmHyFSkMDm7kDvaXOfEF&code=' + code + '&redirect_uri=http://localhost:4200/',
-      //     method: 'GET',
-      //     dataType: 'JSONP',
-      //     success: function(data) {
-      //       console.log(data);
-      //     }
-      //   }
-      // );
-      // {
-      //   params: {
-      //     client_id: '7490396',s
-      //     client_secret: 'XmHyFSkMDm7kDvaXOfEF',
-      //     redirect_uri: 'http://localhost:4200/',
-      //     'code': code,
-      //   }
-      // }).subscribe(res => {
-      //   console.log(res)
-      // });
   }
 
   ngOnInit(): void {
@@ -56,6 +16,9 @@ export class AuthButtonComponent implements OnInit {
 
   onClick() {
     localStorage.setItem('tokenState', '1');
-    window.location.href = 'https://oauth.vk.com/authorize?client_id=7490396&display=popup&response_type=token&redirect_uri=' + window.location.href + '&scope=friends,offline&v=5.107';
+    // redirect to VK authorization page to get the token
+    window.location.href = 'https://oauth.vk.com/authorize?client_id=7490396&display=popup&response_type=token&redirect_uri='
+      + window.location.href
+      + '&scope=friends,offline&v=5.107';
   }
 }

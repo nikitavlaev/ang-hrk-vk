@@ -1,4 +1,9 @@
-<div *ngFor="let friend of friends">
-  <p> {{friend['first_name']}} {{friend['last_name']}} </p>
-  <img src="{{friend['photo_50']}}">
+<h5>Your friends</h5>
+<div class="row">
+  <div class="col-sm-4" *ngFor="let friend of friends">
+    <div class="card">
+      <img src="{{friend['photo_100']}}" class="card-img-top" alt="friend photo">
+      <p class="card-title"> {{friend['first_name']}} {{friend['last_name']}} </p>
+    </div>
+  </div>
 </div>

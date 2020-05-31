@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-info-friends',
@@ -10,12 +12,15 @@ export class InfoFriendsComponent implements OnInit {
   friends = [];
 
   constructor(private http: HttpClient) {
+    //request info about friends
     this.http.jsonp('https://api.vk.com/method/friends.get?user_id=' + localStorage.getItem('userId')
       + '&order=hints' +
       + '&count=5'
-      + '&fields=' + 'nickname, domain, sex, bdate, city, country, timezone, photo_50'
+      + '&fields=' + 'nickname,photo_100'
       + '&access_token=' + localStorage.getItem('token')
       + '&v=5.107', 'callback'
+    ).pipe(
+      catchError(this.handleError)
     ).subscribe(
       data => {
         console.log(data);
@@ -24,7 +29,18 @@ export class InfoFriendsComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return throwError(
+      'Something bad happened; please try again later.');
   }
+
+  ngOnInit(): void {}
 
 }
